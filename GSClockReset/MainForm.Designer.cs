@@ -41,31 +41,34 @@
             this.passwordBox = new System.Windows.Forms.GroupBox();
             this.password = new System.Windows.Forms.TextBox();
             this.generatePassword = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.JPGSCInstructionsBox = new System.Windows.Forms.GroupBox();
+            this.JPGSCLabel = new System.Windows.Forms.Label();
+            this.EUUSCInstructionsBox = new System.Windows.Forms.GroupBox();
+            this.EUUSCInstructionsLabel = new System.Windows.Forms.Label();
+            this.EUUSGSInstructionsBox = new System.Windows.Forms.GroupBox();
+            this.EUUSGSInstructionsLabel = new System.Windows.Forms.Label();
             this.instructionsBox = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.charLabel1 = new System.Windows.Forms.Label();
+            this.charLabel2 = new System.Windows.Forms.Label();
             this.specialCharactersBox = new System.Windows.Forms.GroupBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.multiplicationTextBox = new System.Windows.Forms.TextBox();
+            this.MNTextBox = new System.Windows.Forms.TextBox();
+            this.PKTextBox = new System.Windows.Forms.TextBox();
+            this.multiplicationPictureBox = new System.Windows.Forms.PictureBox();
+            this.charLabel3 = new System.Windows.Forms.Label();
+            this.PKPictureBox = new System.Windows.Forms.PictureBox();
+            this.MNPictureBox = new System.Windows.Forms.PictureBox();
             this.inputBox.SuspendLayout();
             this.regionBox.SuspendLayout();
             this.passwordBox.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.JPGSCInstructionsBox.SuspendLayout();
+            this.EUUSCInstructionsBox.SuspendLayout();
+            this.EUUSGSInstructionsBox.SuspendLayout();
             this.instructionsBox.SuspendLayout();
             this.specialCharactersBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.multiplicationPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PKPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MNPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // inputBox
@@ -215,75 +218,75 @@
             this.generatePassword.UseVisualStyleBackColor = true;
             this.generatePassword.Click += new System.EventHandler(this.generatePassword_Click);
             // 
-            // groupBox3
+            // JPGSCInstructionsBox
             // 
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(6, 149);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(217, 40);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "JAP Gold/Silver/Crystal";
+            this.JPGSCInstructionsBox.Controls.Add(this.JPGSCLabel);
+            this.JPGSCInstructionsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JPGSCInstructionsBox.Location = new System.Drawing.Point(6, 149);
+            this.JPGSCInstructionsBox.Name = "JPGSCInstructionsBox";
+            this.JPGSCInstructionsBox.Size = new System.Drawing.Size(217, 40);
+            this.JPGSCInstructionsBox.TabIndex = 10;
+            this.JPGSCInstructionsBox.TabStop = false;
+            this.JPGSCInstructionsBox.Text = "JAP Gold/Silver/Crystal";
             // 
-            // label3
+            // JPGSCLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(202, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "- the menu does not exist in these games!";
+            this.JPGSCLabel.AutoSize = true;
+            this.JPGSCLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JPGSCLabel.Location = new System.Drawing.Point(6, 16);
+            this.JPGSCLabel.Name = "JPGSCLabel";
+            this.JPGSCLabel.Size = new System.Drawing.Size(202, 13);
+            this.JPGSCLabel.TabIndex = 0;
+            this.JPGSCLabel.Text = "- the menu does not exist in these games!";
             // 
-            // groupBox2
+            // EUUSCInstructionsBox
             // 
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(6, 63);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(217, 80);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "EU/US Crystal + KOR Gold/Silver";
+            this.EUUSCInstructionsBox.Controls.Add(this.EUUSCInstructionsLabel);
+            this.EUUSCInstructionsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EUUSCInstructionsBox.Location = new System.Drawing.Point(6, 63);
+            this.EUUSCInstructionsBox.Name = "EUUSCInstructionsBox";
+            this.EUUSCInstructionsBox.Size = new System.Drawing.Size(217, 80);
+            this.EUUSCInstructionsBox.TabIndex = 9;
+            this.EUUSCInstructionsBox.TabStop = false;
+            this.EUUSCInstructionsBox.Text = "EU/US Crystal + KOR Gold/Silver";
             // 
-            // label2
+            // EUUSCInstructionsLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(201, 52);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "- hold ↓ + SELECT + B on the title screen\r\n- release ↓ + B but still hold SELECT\r" +
+            this.EUUSCInstructionsLabel.AutoSize = true;
+            this.EUUSCInstructionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EUUSCInstructionsLabel.Location = new System.Drawing.Point(6, 16);
+            this.EUUSCInstructionsLabel.Name = "EUUSCInstructionsLabel";
+            this.EUUSCInstructionsLabel.Size = new System.Drawing.Size(201, 52);
+            this.EUUSCInstructionsLabel.TabIndex = 0;
+            this.EUUSCInstructionsLabel.Text = "- hold ↓ + SELECT + B on the title screen\r\n- release ↓ + B but still hold SELECT\r" +
     "\n- hold ← + ↑\r\n- release SELECT";
             // 
-            // groupBox1
+            // EUUSGSInstructionsBox
             // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(6, 17);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(217, 40);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "EU/US Gold/Silver";
+            this.EUUSGSInstructionsBox.Controls.Add(this.EUUSGSInstructionsLabel);
+            this.EUUSGSInstructionsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EUUSGSInstructionsBox.Location = new System.Drawing.Point(6, 17);
+            this.EUUSGSInstructionsBox.Name = "EUUSGSInstructionsBox";
+            this.EUUSGSInstructionsBox.Size = new System.Drawing.Size(217, 40);
+            this.EUUSGSInstructionsBox.TabIndex = 8;
+            this.EUUSGSInstructionsBox.TabStop = false;
+            this.EUUSGSInstructionsBox.Text = "EU/US Gold/Silver";
             // 
-            // label1
+            // EUUSGSInstructionsLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(201, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "- hold ↓ + SELECT + B on the title screen";
+            this.EUUSGSInstructionsLabel.AutoSize = true;
+            this.EUUSGSInstructionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EUUSGSInstructionsLabel.Location = new System.Drawing.Point(6, 16);
+            this.EUUSGSInstructionsLabel.Name = "EUUSGSInstructionsLabel";
+            this.EUUSGSInstructionsLabel.Size = new System.Drawing.Size(201, 13);
+            this.EUUSGSInstructionsLabel.TabIndex = 2;
+            this.EUUSGSInstructionsLabel.Text = "- hold ↓ + SELECT + B on the title screen";
             // 
             // instructionsBox
             // 
-            this.instructionsBox.Controls.Add(this.groupBox1);
-            this.instructionsBox.Controls.Add(this.groupBox3);
-            this.instructionsBox.Controls.Add(this.groupBox2);
+            this.instructionsBox.Controls.Add(this.EUUSGSInstructionsBox);
+            this.instructionsBox.Controls.Add(this.JPGSCInstructionsBox);
+            this.instructionsBox.Controls.Add(this.EUUSCInstructionsBox);
             this.instructionsBox.Location = new System.Drawing.Point(183, 6);
             this.instructionsBox.Name = "instructionsBox";
             this.instructionsBox.Size = new System.Drawing.Size(229, 195);
@@ -291,32 +294,35 @@
             this.instructionsBox.TabStop = false;
             this.instructionsBox.Text = "Instructions";
             // 
-            // label4
+            // charLabel1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(20, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "= {";
+            this.charLabel1.AutoSize = true;
+            this.charLabel1.Location = new System.Drawing.Point(28, 19);
+            this.charLabel1.Name = "charLabel1";
+            this.charLabel1.Size = new System.Drawing.Size(16, 13);
+            this.charLabel1.TabIndex = 13;
+            this.charLabel1.Text = "= ";
             // 
-            // label5
+            // charLabel2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(87, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(20, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "= }";
+            this.charLabel2.AutoSize = true;
+            this.charLabel2.Location = new System.Drawing.Point(109, 19);
+            this.charLabel2.Name = "charLabel2";
+            this.charLabel2.Size = new System.Drawing.Size(16, 13);
+            this.charLabel2.TabIndex = 14;
+            this.charLabel2.Text = "= ";
             // 
             // specialCharactersBox
             // 
-            this.specialCharactersBox.Controls.Add(this.pictureBox3);
-            this.specialCharactersBox.Controls.Add(this.label6);
-            this.specialCharactersBox.Controls.Add(this.pictureBox1);
-            this.specialCharactersBox.Controls.Add(this.label5);
-            this.specialCharactersBox.Controls.Add(this.pictureBox2);
-            this.specialCharactersBox.Controls.Add(this.label4);
+            this.specialCharactersBox.Controls.Add(this.multiplicationTextBox);
+            this.specialCharactersBox.Controls.Add(this.MNTextBox);
+            this.specialCharactersBox.Controls.Add(this.PKTextBox);
+            this.specialCharactersBox.Controls.Add(this.multiplicationPictureBox);
+            this.specialCharactersBox.Controls.Add(this.charLabel3);
+            this.specialCharactersBox.Controls.Add(this.PKPictureBox);
+            this.specialCharactersBox.Controls.Add(this.charLabel2);
+            this.specialCharactersBox.Controls.Add(this.MNPictureBox);
+            this.specialCharactersBox.Controls.Add(this.charLabel1);
             this.specialCharactersBox.Location = new System.Drawing.Point(183, 207);
             this.specialCharactersBox.Name = "specialCharactersBox";
             this.specialCharactersBox.Size = new System.Drawing.Size(229, 43);
@@ -324,41 +330,71 @@
             this.specialCharactersBox.TabStop = false;
             this.specialCharactersBox.Text = "Special Characters";
             // 
-            // pictureBox3
+            // multiplicationTextBox
             // 
-            this.pictureBox3.Image = global::GSClockReset.Properties.Resources.multiplication;
-            this.pictureBox3.Location = new System.Drawing.Point(127, 22);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(10, 10);
-            this.pictureBox3.TabIndex = 16;
-            this.pictureBox3.TabStop = false;
+            this.multiplicationTextBox.Location = new System.Drawing.Point(197, 16);
+            this.multiplicationTextBox.Name = "multiplicationTextBox";
+            this.multiplicationTextBox.ReadOnly = true;
+            this.multiplicationTextBox.Size = new System.Drawing.Size(20, 20);
+            this.multiplicationTextBox.TabIndex = 19;
+            this.multiplicationTextBox.Text = "×";
+            this.multiplicationTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label6
+            // MNTextBox
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(141, 19);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "= ×  (Alt + 0215)";
+            this.MNTextBox.Location = new System.Drawing.Point(122, 16);
+            this.MNTextBox.Name = "MNTextBox";
+            this.MNTextBox.ReadOnly = true;
+            this.MNTextBox.Size = new System.Drawing.Size(20, 20);
+            this.MNTextBox.TabIndex = 18;
+            this.MNTextBox.Text = "}";
+            this.MNTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // pictureBox1
+            // PKTextBox
             // 
-            this.pictureBox1.Image = global::GSClockReset.Properties.Resources.pk;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 17);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(16, 18);
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            this.PKTextBox.Location = new System.Drawing.Point(41, 16);
+            this.PKTextBox.Name = "PKTextBox";
+            this.PKTextBox.ReadOnly = true;
+            this.PKTextBox.Size = new System.Drawing.Size(20, 20);
+            this.PKTextBox.TabIndex = 17;
+            this.PKTextBox.Text = "{";
+            this.PKTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // pictureBox2
+            // multiplicationPictureBox
             // 
-            this.pictureBox2.Image = global::GSClockReset.Properties.Resources.mn;
-            this.pictureBox2.Location = new System.Drawing.Point(69, 17);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(16, 18);
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
+            this.multiplicationPictureBox.Image = global::GSClockReset.Properties.Resources.multiplication;
+            this.multiplicationPictureBox.Location = new System.Drawing.Point(173, 22);
+            this.multiplicationPictureBox.Name = "multiplicationPictureBox";
+            this.multiplicationPictureBox.Size = new System.Drawing.Size(10, 10);
+            this.multiplicationPictureBox.TabIndex = 16;
+            this.multiplicationPictureBox.TabStop = false;
+            // 
+            // charLabel3
+            // 
+            this.charLabel3.AutoSize = true;
+            this.charLabel3.Location = new System.Drawing.Point(184, 19);
+            this.charLabel3.Name = "charLabel3";
+            this.charLabel3.Size = new System.Drawing.Size(16, 13);
+            this.charLabel3.TabIndex = 15;
+            this.charLabel3.Text = "= ";
+            // 
+            // PKPictureBox
+            // 
+            this.PKPictureBox.Image = global::GSClockReset.Properties.Resources.pk;
+            this.PKPictureBox.Location = new System.Drawing.Point(11, 17);
+            this.PKPictureBox.Name = "PKPictureBox";
+            this.PKPictureBox.Size = new System.Drawing.Size(16, 18);
+            this.PKPictureBox.TabIndex = 11;
+            this.PKPictureBox.TabStop = false;
+            // 
+            // MNPictureBox
+            // 
+            this.MNPictureBox.Image = global::GSClockReset.Properties.Resources.mn;
+            this.MNPictureBox.Location = new System.Drawing.Point(92, 17);
+            this.MNPictureBox.Name = "MNPictureBox";
+            this.MNPictureBox.Size = new System.Drawing.Size(16, 18);
+            this.MNPictureBox.TabIndex = 12;
+            this.MNPictureBox.TabStop = false;
             // 
             // MainForm
             // 
@@ -379,18 +415,18 @@
             this.regionBox.PerformLayout();
             this.passwordBox.ResumeLayout(false);
             this.passwordBox.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.JPGSCInstructionsBox.ResumeLayout(false);
+            this.JPGSCInstructionsBox.PerformLayout();
+            this.EUUSCInstructionsBox.ResumeLayout(false);
+            this.EUUSCInstructionsBox.PerformLayout();
+            this.EUUSGSInstructionsBox.ResumeLayout(false);
+            this.EUUSGSInstructionsBox.PerformLayout();
             this.instructionsBox.ResumeLayout(false);
             this.specialCharactersBox.ResumeLayout(false);
             this.specialCharactersBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.multiplicationPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PKPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MNPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -410,20 +446,23 @@
         private System.Windows.Forms.GroupBox regionBox;
         private System.Windows.Forms.RadioButton region_kor;
         private System.Windows.Forms.RadioButton region_euus;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox JPGSCInstructionsBox;
+        private System.Windows.Forms.Label JPGSCLabel;
+        private System.Windows.Forms.GroupBox EUUSCInstructionsBox;
+        private System.Windows.Forms.Label EUUSCInstructionsLabel;
+        private System.Windows.Forms.GroupBox EUUSGSInstructionsBox;
+        private System.Windows.Forms.Label EUUSGSInstructionsLabel;
         private System.Windows.Forms.GroupBox instructionsBox;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox PKPictureBox;
+        private System.Windows.Forms.PictureBox MNPictureBox;
         private System.Windows.Forms.GroupBox specialCharactersBox;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox multiplicationPictureBox;
+        private System.Windows.Forms.Label charLabel3;
+        private System.Windows.Forms.Label charLabel2;
+        private System.Windows.Forms.Label charLabel1;
+        private System.Windows.Forms.TextBox multiplicationTextBox;
+        private System.Windows.Forms.TextBox MNTextBox;
+        private System.Windows.Forms.TextBox PKTextBox;
     }
 }
 

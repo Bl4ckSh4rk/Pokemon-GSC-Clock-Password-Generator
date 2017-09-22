@@ -25,7 +25,7 @@ namespace GSClockReset
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Invalid character in Trainer Name");
+                MessageBox.Show(ex.Message);
                 return;
             }
 
@@ -36,7 +36,12 @@ namespace GSClockReset
             }
             catch (FormatException fe)
             {
-                MessageBox.Show("Invalid Trainer ID");
+                MessageBox.Show("Trainer ID is not a number");
+                return;
+            }
+            catch (OverflowException oe)
+            {
+                MessageBox.Show("Trainer ID is out of range (0 - 65535)");
                 return;
             }
 
@@ -47,27 +52,27 @@ namespace GSClockReset
             }
             catch (FormatException fe)
             {
-                MessageBox.Show("Invalid money value");
+                MessageBox.Show("Money value is not a number");
                 return;
             }
 
-            if (Password.IsValidTID(Int32.Parse(tidBox.Text)))
+            if (Password.IsValidTID(UInt16.Parse(tidBox.Text)))
             { 
                 pw.TID = tid;
             }
             else
             {
-                MessageBox.Show("Invalid Trainer ID");
+                MessageBox.Show("Trainer ID is out of range (0 - 65535)");
                 return;
             }
 
-            if (Password.IsValidMoneyAmount(Int32.Parse(moneyBox.Text)))
+            if (Password.IsValidMoneyAmount(UInt32.Parse(moneyBox.Text)))
             {
                 pw.Money = money;
             }
             else
             {
-                MessageBox.Show("Invalid money value");
+                MessageBox.Show("Money value is out of range (0 - 999999)");
                 return;
             }
             
