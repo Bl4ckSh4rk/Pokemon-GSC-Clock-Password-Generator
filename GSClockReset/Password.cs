@@ -11,7 +11,8 @@ namespace GSClockReset
         /// <summary>
         /// Character table for European and US game version's trainer name.
         /// </summary>
-        private static Dictionary<string, byte> Table = new Dictionary<string, byte>
+        /// <remarks>Contains only characters that are valid for the OT.</remarks>
+        private static readonly Dictionary<string, byte> Table = new Dictionary<string, byte>
         {
             {" ", 0x7F},
             {"A", 0x80}, {"B", 0x81}, {"C", 0x82}, {"D", 0x83}, {"E", 0x84}, {"F", 0x85}, {"G", 0x86}, {"H", 0x87}, {"I", 0x88}, {"J", 0x89}, {"K", 0x8A}, {"L", 0x8B}, {"M", 0x8C}, {"N", 0x8D}, {"O", 0x8E}, {"P", 0x8F},
@@ -26,7 +27,8 @@ namespace GSClockReset
         /// <summary>
         /// Character table for Korean game version's trainer name.
         /// </summary>
-        private static Dictionary<string, ushort> Table_KO = new Dictionary<string, ushort>
+        /// <remarks>Contains only characters that are valid for the OT.</remarks>
+        private static readonly Dictionary<string, ushort> Table_KO = new Dictionary<string, ushort>
         {   
            {"가", 0x0101}, {"각", 0x0102}, {"간", 0x0103}, {"갇", 0x0104}, {"갈", 0x0105}, {"갉", 0x0106}, {"갊", 0x0107}, {"감", 0x0108}, {"갑", 0x0109}, {"값", 0x010A}, {"갓", 0x010B}, {"갔", 0x010C}, {"강", 0x010D}, {"갖", 0x010E}, {"갗", 0x010F},
            {"같", 0x0110}, {"갚", 0x0111}, {"갛", 0x0112}, {"개", 0x0113}, {"객", 0x0114}, {"갠", 0x0115}, {"갤", 0x0116}, {"갬", 0x0117}, {"갭", 0x0118}, {"갯", 0x0119}, {"갰", 0x011A}, {"갱", 0x011B}, {"갸", 0x011C}, {"갹", 0x011D}, {"갼", 0x011E}, {"걀", 0x011F},
@@ -189,7 +191,7 @@ namespace GSClockReset
         /// </summary>
         /// <param name="c">Character</param>
         /// <returns></returns>
-        private static byte GetCharValue(string c)
+        private static ushort GetCharValue(string c)
         {
             if (Table.TryGetValue(c, out byte b))
                 return b;
@@ -219,14 +221,14 @@ namespace GSClockReset
         /// </summary>
         /// <param name="name">EU/US trainer name</param>
         /// <returns></returns>
-        private byte[] NameAsArray(string name)
+        private static ushort[] NameAsArray(string name)
         {
-            byte[] bytes = new byte[name.Length];
+            ushort[] chars = new ushort[name.Length];
             for (int x = 0; x < name.Length && x < 5; x++) // only the first 5 characters are taken into account
             {
-                bytes[x] = GetCharValue(name[x].ToString());
+                chars[x] = GetCharValue(name[x].ToString());
             }
-            return bytes;
+            return chars;
         }
 
         /// <summary>
@@ -234,14 +236,14 @@ namespace GSClockReset
         /// </summary>
         /// <param name="name">Korean trainer name</param>
         /// <returns></returns>
-        private ushort[] NameAsArrayKO(string name)
+        private static ushort[] NameAsArrayKO(string name)
         {
-            ushort[] bytes = new ushort[name.Length];
+            ushort[] chars = new ushort[name.Length];
             for(int x = 0; x < name.Length && x < 5; x++)
             {
-                bytes[x] = (ushort)((GetCharValueKO(name[x].ToString()) & 0xFF) + (GetCharValueKO(name[x].ToString()) >> 8));
+                chars[x] = (ushort)((GetCharValueKO(name[x].ToString()) & 0xFF) + (GetCharValueKO(name[x].ToString()) >> 8));
             }
-            return bytes;
+            return chars;
         }
 
         private string name = "GSC";
@@ -349,7 +351,7 @@ namespace GSClockReset
         /// </summary>
         /// <param name="tid">Trainer ID</param>
         /// <returns></returns>
-        public static bool IsValidTID(int tid)
+        public static bool IsValidTID(ushort tid)
         {
             if (tid >= 0 && tid <= 65535)
                 return true;
@@ -362,7 +364,7 @@ namespace GSClockReset
         /// </summary>
         /// <param name="money">Amount of money the player is currently carrying.</param>
         /// <returns></returns>
-        public static bool IsValidMoneyAmount(int money)
+        public static bool IsValidMoneyAmount(uint money)
         {
             if (money >= 0 && money <= 999999)
                 return true;
@@ -379,7 +381,7 @@ namespace GSClockReset
             int pass = 0;
             if (!korean)
             {
-                byte[] nameBytes = NameAsArray(name);
+                ushort[] nameBytes = NameAsArray(name);
                 for (int x = 0; x < nameBytes.Length; x++)
                     pass += nameBytes[x];
             }
