@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace GSClockReset
@@ -191,7 +191,7 @@ namespace GSClockReset
         /// </summary>
         /// <param name="c">Character</param>
         /// <returns></returns>
-        private static ushort GetCharValue(string c)
+        private static byte GetCharValue(string c)
         {
             if (Table.TryGetValue(c, out byte b))
                 return b;
@@ -221,10 +221,10 @@ namespace GSClockReset
         /// </summary>
         /// <param name="name">EU/US trainer name</param>
         /// <returns></returns>
-        private static ushort[] NameAsArray(string name)
+        private static byte[] NameAsArray(string name)
         {
-            ushort[] chars = new ushort[name.Length];
-            for (int x = 0; x < name.Length && x < 5; x++) // only the first 5 characters are taken into account
+            byte[] chars = new byte[name.Length];
+            for (int x = 0; x < name.Length; x++)
             {
                 chars[x] = GetCharValue(name[x].ToString());
             }
@@ -236,12 +236,13 @@ namespace GSClockReset
         /// </summary>
         /// <param name="name">Korean trainer name</param>
         /// <returns></returns>
-        private static ushort[] NameAsArrayKO(string name)
+        private static byte[] NameAsArrayKO(string name)
         {
-            ushort[] chars = new ushort[name.Length];
-            for(int x = 0; x < name.Length && x < 5; x++)
+            byte[] chars = new byte[name.Length * 2];
+            for(int x = 0; x < name.Length; x++)
             {
-                chars[x] = (ushort)((GetCharValueKO(name[x].ToString()) & 0xFF) + (GetCharValueKO(name[x].ToString()) >> 8));
+                chars[x * 2] = (byte)(GetCharValueKO(name[x].ToString()) >> 8);
+                chars[x * 2 + 1] = (byte)(GetCharValueKO(name[x].ToString()) & 0xFF);
             }
             return chars;
         }
@@ -378,29 +379,24 @@ namespace GSClockReset
         /// <returns></returns>
         public ushort GetPassword()
         {
-            int pass = 0;
+            ushort pass = 0;
+
             if (!korean)
             {
-                ushort[] nameBytes = NameAsArray(name);
-                for (int x = 0; x < nameBytes.Length; x++)
+                byte[] nameBytes = NameAsArray(name);
+                for (int x = 0; x < nameBytes.Length && x < 5; x++) // only the first 5 characters are taken into account
                     pass += nameBytes[x];
             }
             else
             {
-                ushort[] nameBytesKO = NameAsArrayKO(name);
-                for (int x = 0; x < nameBytesKO.Length; x++)
+                byte[] nameBytesKO = NameAsArrayKO(name);
+                for (int x = 0; x < nameBytesKO.Length && x < 5; x++)
                     pass += nameBytesKO[x];
             }
 
-            while (tid > 0xFFFF)
-                tid -= 0xFFFF;
+            pass += (ushort)((tid >> 8) + (tid & 0xFF) + ((money >> 16) & 0xFF) + ((money >> 8) & 0xFF) + (money & 0xFF));
 
-            while (money > 0xFFFF)
-                money -= 0xFFFF;
-
-            pass += (int)((tid >> 8) + (tid & 0xFF) + (money >> 8) + (money & 0xFF));
-            
-            return (ushort)pass;
+            return pass;
         }
 
         /// <summary>
