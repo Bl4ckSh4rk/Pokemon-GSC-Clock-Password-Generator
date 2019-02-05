@@ -1,0 +1,101 @@
+body
+{
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    font-family: "Times New Roman", Arial;
+}
+
+table
+{
+    font-weight: bold;
+}
+
+td:nth-child(2)
+{
+    text-align: left;
+    padding-left: 5px;
+}
+
+td:nth-child(1)
+{
+    text-align: right;
+    padding-right: 5px;
+}
+
+#generateButtonRow
+{
+    text-align: center;
+}
+
+#name
+{
+    width: 90px;
+}
+
+#tid, #money
+{
+    width: 45px;
+}
+
+#trainerName, #trainerId, #amountOfMoney, #gameRegion, #result
+{
+    font-weight: bold;
+}
+
+label
+{
+    font-weight: normal;
+}
+
+.resultBox
+{
+    padding-top: 15px;
+}
+
+#hide
+{
+    font-size: 12px;
+    font-weight: normal;
+}
+
+#instructions
+{
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#instructionsContent
+{
+    display: none;
+    max-width: 500px;
+    margin: auto;
+}
+
+#gsEUUS, #cEUUS, #gscJAP, #specialCharacters
+{
+    border: 1px solid #000;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.instructionTitle
+{
+    font-weight: bold;
+}
+
+.cursorPointer
+{
+    cursor: pointer;
+}
+
+.cursorDefault
+{
+    cursor: default;
+}
+
+.cursorText
+{
+    cursor: text;
+}

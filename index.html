@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GSC Clock Password Generator</title>
+        <script type="text/javascript" src="script.js" ></script>
+        <script type="text/javascript" src="password.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body class="cursorDefault">
+        <h1>GSC Clock Password Generator</h1>
+
+        <table align="center">
+            <tr>
+                <td>
+                    Trainer Name
+                </td>
+                <td>
+                    <input type="text" class="input" id="name" maxlength="7">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Trainer ID
+                </td>
+                <td>
+                    <input type="text" class="input" id="tid" maxlength="5">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Money
+                </td>
+                <td>
+                    <input type="text" class="input" id="money" maxlength="6">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Game Region
+                </td>
+                <td>
+                    <label class="cursorPointer">
+                        <input type="radio" name="region" id="eur" checked>EU/US
+                    </label>
+                    <br>
+                    <label class="cursorPointer">
+                        <input type="radio" name="region" id="kor">KOR
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" id="generateButtonRow">
+                    <input type="button" value="Generate" onClick="generatePassword();" class="cursorPointer">
+                </td>
+            </tr>
+            <tr>
+                <td class="resultBox">
+                    Password
+                </td>
+                <td class="resultBox">
+                    <span id="password"></span>
+                </td>
+            </tr>
+        </table>
+
+        <div id="instructions" onClick="showHide('instructionsContent');" class="cursorPointer">
+            Instructions 
+            <span id="hide">
+                Show/Hide
+            </span>
+        </div>
+        <div id="instructionsContent">
+            <div id="gsEUUS">
+                <div class="instructionTitle">
+                    EU/US Gold/Silver
+                </div>
+                - hold ↓ + SELECT + B on the title screen
+            </div>
+            <div id="cEUUS">
+                <div class="instructionTitle">
+                    EU/US Crystal + KOR Gold/Silver
+                </div>
+                - hold ↓ + SELECT + B on the title screen<br>
+                - release ↓ + B but still hold SELECT<br>
+                - hold ← + ↑<br>
+                - release SELECT
+            </div>
+            <div id="gscJAP">
+                <div class="instructionTitle">
+                    JAP Gold/Silver/Crystal
+                </div>
+                - the menu does not exist in these games!
+            </div>
+            <div id="specialCharacters">
+                <div class="instructionTitle">
+                    Special Characters (EU/US)
+                </div>
+                P<sub>K</sub>&nbsp;&nbsp;&#x2259;&nbsp;&nbsp;
+                <span class="cursorText">
+                    {
+                </span>
+                <br>
+                M<sub>N</sub>&nbsp;&nbsp;&#x2259;&nbsp;&nbsp;
+                <span class="cursorText">
+                    }
+                </span>
+                <br>
+                <span class="cursorText">
+                    ×
+                </span>
+            </div>
+        </div>
+
+        <!--<a target="_blank" href="https://github.com/Bl4ckSh4rk/Pokemon-GSC-Clock-Password-Generator/releases/latest">Here you can find an offline version written in C# (requires .NET 4.0)</a>-->
+    </body>
+</html> 
