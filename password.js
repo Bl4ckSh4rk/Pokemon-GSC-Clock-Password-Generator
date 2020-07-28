@@ -1,3 +1,103 @@
+/// Calculates and returns the password.
+function getPassword(name, tid, money, korean)
+{
+    var pass = 0;
+
+    var nameBytes = getBytes(name, korean);
+    for (x = 0; x < nameBytes.length && x < 5; x++) // only the first 5 characters are taken into account
+        pass += nameBytes[x];
+
+    pass += ((tid >> 8) + (tid & 0xFF) + ((money >> 16) & 0xFF) + ((money >> 8) & 0xFF) + (money & 0xFF));
+
+    for (x = (pass + "").length; x < 5; x++)
+        pass = "0" + pass;
+
+    return pass;
+}
+
+/// Returns the name's character values as array.
+function getBytes(name, korean)
+{
+    var chars = new Array();
+    
+    if(korean)
+    {
+        for(x = 0; x < name.length; x++)
+        {
+            chars[x * 2] = (table_ko[name.charAt(x)] >> 8);
+            chars[x * 2 + 1] = (table_ko[name.charAt(x)] & 0xFF);
+        }
+    }
+    else
+    {
+        for (x = 0; x < name.length; x++)
+        {
+            chars[x] = table[name.charAt(x)];
+        }
+    }
+    
+    return chars;
+}
+
+/// Returns the byte value of the character from the EU/US table.
+function isValidNameEUUS(name)
+{
+    for (x = 0; x < name.length; x++)
+    {
+        if (table[name.charAt(x)] == undefined)
+            return false;
+    }
+    return true;
+}
+
+/// Returns the byte value of the character from the KO table.
+function isValidNameKO(name)
+{
+    for (x = 0; x < name.length; x++)
+    {
+        if (table_ko[name.charAt(x)] == undefined)
+            return false;
+    }
+    return true;
+}
+
+/// Checks if the Trainer Name is valid.
+function isValidName(name, korean)
+{
+    if(name == "")
+        return false;
+
+    if(korean == true)
+        return isValidNameKO(name);
+
+    else
+        return isValidNameEUUS(name);
+}
+
+function onlyNumerical(str)
+{
+    var regex = RegExp('[^0-9]', 'g');
+    return !regex.test(str);
+}
+
+/// Checks if the Trainer ID is valid.
+function isValidTid(tid)
+{
+    if(parseInt(tid) < 0 || parseInt(tid) > 65535 || !onlyNumerical(tid))
+        return false;
+
+    return true;
+}
+
+/// Checks if the amount of money is valid.
+function isValidAmountOfMoney(money)
+{
+    if(parseInt(money) < 0 || parseInt(money) > 999999 || !onlyNumerical(money))
+        return false;
+
+    return true;
+}
+
 /// Character table for European and US game version's trainer name.
 var table = new Array();
     table[" "] = 0x7F;
@@ -165,111 +265,3 @@ var table_ko = new Array();
     table_ko["ㅃ"] = 0x0B10; table_ko["ㅆ"] = 0x0B11; table_ko["ㅉ"] = 0x0B12;
     table_ko["ㅏ"] = 0x0B20; table_ko["ㅑ"] = 0x0B21; table_ko["ㅓ"] = 0x0B22; table_ko["ㅕ"] = 0x0B23; table_ko["ㅗ"] = 0x0B24; table_ko["ㅛ"] = 0x0B25; table_ko["ㅜ"] = 0x0B26; table_ko["ㅠ"] = 0x0B27; table_ko["ㅡ"] = 0x0B28; table_ko["ㅣ"] = 0x0B29; table_ko["ㅐ"] = 0x0B2A; table_ko["ㅒ"] = 0x0B2B; table_ko["ㅔ"] = 0x0B2C; table_ko["ㅖ"] = 0x0B2D; table_ko["ㅘ"] = 0x0B2E; table_ko["ㅙ"] = 0x0B2F;
     table_ko["ㅚ"] = 0x0B30; table_ko["ㅝ"] = 0x0B31; table_ko["ㅞ"] = 0x0B32; table_ko["ㅟ"] = 0x0B33; table_ko["ㅢ"] = 0x0B34; table_ko["_"] = 0x0B3E; table_ko[" "] = 0x0BFF;
-
-/// Returns the byte value of the character from the EU/US table.
-function isValidNameEUUS(name)
-{
-    for (x = 0; x < name.length; x++)
-    {
-        if (table[name.charAt(x)] == undefined)
-            return false;
-    }
-    return true;
-}
-
-/// Returns the byte value of the character from the KO table.
-function isValidNameKO(name)
-{
-    for (x = 0; x < name.length; x++)
-    {
-        if (table_ko[name.charAt(x)] == undefined)
-            return false;
-    }
-    return true;
-}
-
-/// Checks if the Trainer Name is valid.
-function isValidName(name, korean)
-{
-    if(name == "")
-        return false;
-
-    if(korean == true)
-        return isValidNameKO(name);
-
-    else
-        return isValidNameEUUS(name);
-}
-
-function onlyNumerical(str)
-{
-    var regex = RegExp('[^0-9]', 'g');
-    return !regex.test(str);
-}
-
-/// Checks if the Trainer ID is valid.
-function isValidTid(tid)
-{
-    if(parseInt(tid) < 0 || parseInt(tid) > 65535 || !onlyNumerical(tid))
-        return false;
-
-    return true;
-}
-
-/// Checks if the amount of money is valid.
-function isValidAmountOfMoney(money)
-{
-    if(parseInt(money) < 0 || parseInt(money) > 999999 || !onlyNumerical(money))
-        return false;
-
-    return true;
-}
-
-/// Returns the name's character values as array.
-function nameAsArray(name)
-{
-    var chars = new Array();
-    for (x = 0; x < name.length; x++)
-    {
-        chars[x] = table[name.charAt(x)];
-    }
-    return chars;
-}
-
-/// Returns the name's character values as array.
-function nameAsArrayKO(name)
-{
-    var chars = new Array();
-    for(x = 0; x < name.length; x++)
-    {
-        chars[x * 2] = (table_ko[name.charAt(x)] >> 8);
-        chars[x * 2 + 1] = (table_ko[name.charAt(x)] & 0xFF);
-    }
-    return chars;
-}
-
-/// Calculates and returns the password.
-function getPassword(name, tid, money, korean)
-{
-    var pass = 0;
-
-    if (!korean)
-    {
-        var nameBytes = nameAsArray(name);
-        for (x = 0; x < nameBytes.length && x < 5; x++) // only the first 5 characters are taken into account
-            pass += nameBytes[x];
-    }
-    else
-    {
-        var nameBytesKO = nameAsArrayKO(name);
-        for (x = 0; x < nameBytesKO.length && x < 5; x++)
-            pass += nameBytesKO[x];
-    }
-
-    pass += ((tid >> 8) + (tid & 0xFF) + ((money >> 16) & 0xFF) + ((money >> 8) & 0xFF) + (money & 0xFF));
-
-    for (x = (pass + "").length; x < 5; x++)
-        pass = "0" + pass;
-
-    return pass;
-}
