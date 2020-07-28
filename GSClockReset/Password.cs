@@ -4,10 +4,89 @@ using System.Collections.Generic;
 namespace GSClockReset
 {
     /// <summary>
-    /// Class to generate the password needed to reset the ingame clock in European, US and Korean version of Pokemon Gold, Silver and Crystal.
+    /// Class to generate the password needed to reset the ingame clock in European, US and Korean versions of Pokemon Gold, Silver and Crystal.
     /// </summary>
-    class Password
+    public static class Password
     {
+        /// <summary>
+        /// Calculates and returns the password to reset the clock.
+        /// </summary>
+        /// <param name="Name">Trainer name.</param>
+        /// <param name="TID">Trainer ID.</param>
+        /// <param name="Money">Amount of money the player is currently carrying.</param>
+        /// <param name="Korean">Use Korean character encoding.</param>
+        /// <returns></returns>
+        public static ushort GetPassword(string Name, int TID, int Money, bool Korean = false)
+        {
+            if (Korean)
+            {
+                foreach (char c in Name)
+                {
+                    if (!Table_KO.ContainsKey(c.ToString()))
+                        throw new ArgumentOutOfRangeException("Name", c.ToString(), "Unexpected character.");
+                }
+            }
+            else
+            {
+                foreach (char c in Name)
+                {
+                    if (!Table.ContainsKey(c.ToString()))
+                        throw new ArgumentOutOfRangeException("Name", c.ToString(), "Unexpected character.");
+                }
+            }
+
+            if (TID < 0 || TID > 65535)
+                throw new ArgumentOutOfRangeException("TID", TID, "Expected a value between 0 and 65535.");
+
+            if (Money < 0 || Money > 999999)
+                throw new ArgumentOutOfRangeException("TID", Money, "Expected a value between 0 and 999999."); ;
+
+
+            ushort pass = 0;
+
+            byte[] nameBytes = GetBytes(Name, Korean);
+
+            for (int x = 0; x < nameBytes.Length && x < 5; x++) // only the first 5 characters are taken into account
+                pass += nameBytes[x];
+
+            pass += (ushort)((TID >> 8) + (TID & 0xFF) + ((Money >> 16) & 0xFF) + ((Money >> 8) & 0xFF) + (Money & 0xFF));
+
+            return pass;
+        }
+
+        /// <summary>
+        /// Returns the name's character values as array.
+        /// </summary>
+        /// <param name="Name">Trainer name.</param>
+        /// <param name="Korean">Use Korean character encoding.</param>
+        /// <returns></returns>
+        private static byte[] GetBytes(string Name, bool Korean)
+        {
+            byte[] chars = new byte[Korean ? Name.Length * 2 : Name.Length];
+
+            if (Korean)
+            {
+                for (int x = 0; x < Name.Length; x++)
+                {
+                    if (Table_KO.TryGetValue(Name[x].ToString(), out ushort b))
+                    {
+                        chars[x * 2] = (byte)(b >> 8);
+                        chars[x * 2 + 1] = (byte)(b & 0xFF);
+                    }
+                }
+            }
+            else
+            {
+                for (int x = 0; x < Name.Length; x++)
+                {
+                    if (Table.TryGetValue(Name[x].ToString(), out byte b))
+                        chars[x] = b;
+                }
+            }
+
+            return chars;
+        }
+
         /// <summary>
         /// Character table for European and US game version's trainer name.
         /// </summary>
@@ -29,7 +108,7 @@ namespace GSClockReset
         /// </summary>
         /// <remarks>Contains only characters that are valid for the OT.</remarks>
         private static readonly Dictionary<string, ushort> Table_KO = new Dictionary<string, ushort>
-        {   
+        {
            {"가", 0x0101}, {"각", 0x0102}, {"간", 0x0103}, {"갇", 0x0104}, {"갈", 0x0105}, {"갉", 0x0106}, {"갊", 0x0107}, {"감", 0x0108}, {"갑", 0x0109}, {"값", 0x010A}, {"갓", 0x010B}, {"갔", 0x010C}, {"강", 0x010D}, {"갖", 0x010E}, {"갗", 0x010F},
            {"같", 0x0110}, {"갚", 0x0111}, {"갛", 0x0112}, {"개", 0x0113}, {"객", 0x0114}, {"갠", 0x0115}, {"갤", 0x0116}, {"갬", 0x0117}, {"갭", 0x0118}, {"갯", 0x0119}, {"갰", 0x011A}, {"갱", 0x011B}, {"갸", 0x011C}, {"갹", 0x011D}, {"갼", 0x011E}, {"걀", 0x011F},
            {"걋", 0x0120}, {"걍", 0x0121}, {"걔", 0x0122}, {"걘", 0x0123}, {"걜", 0x0124}, {"거", 0x0125}, {"걱", 0x0126}, {"건", 0x0127}, {"걷", 0x0128}, {"걸", 0x0129}, {"걺", 0x012A}, {"검", 0x012B}, {"겁", 0x012C}, {"것", 0x012D}, {"겄", 0x012E}, {"겅", 0x012F},
@@ -185,227 +264,5 @@ namespace GSClockReset
            {"ㅏ", 0x0B20}, {"ㅑ", 0x0B21}, {"ㅓ", 0x0B22}, {"ㅕ", 0x0B23}, {"ㅗ", 0x0B24}, {"ㅛ", 0x0B25}, {"ㅜ", 0x0B26}, {"ㅠ", 0x0B27}, {"ㅡ", 0x0B28}, {"ㅣ", 0x0B29}, {"ㅐ", 0x0B2A}, {"ㅒ", 0x0B2B}, {"ㅔ", 0x0B2C}, {"ㅖ", 0x0B2D}, {"ㅘ", 0x0B2E}, {"ㅙ", 0x0B2F},
            {"ㅚ", 0x0B30}, {"ㅝ", 0x0B31}, {"ㅞ", 0x0B32}, {"ㅟ", 0x0B33}, {"ㅢ", 0x0B34}, {"_", 0x0B3E}, {" ", 0x0BFF}
         };
-
-        /// <summary>
-        /// Returns the byte value of the character from the EU/US table.
-        /// </summary>
-        /// <param name="c">Character</param>
-        /// <returns></returns>
-        private static byte GetCharValue(string c)
-        {
-            if (Table.TryGetValue(c, out byte b))
-                return b;
-            else
-            {
-                throw new Exception("Invalid character");
-            }
-        }
-
-        /// <summary>
-        /// Returns the byte value of the character from the KO table.
-        /// </summary>
-        /// <param name="c">Korean character</param>
-        /// <returns></returns>
-        private static ushort GetCharValueKO(string c)
-        {
-            if (Table_KO.TryGetValue(c, out ushort b))
-                return b;
-            else
-            {
-                throw new Exception("Invalid character");
-            }
-        }
-        
-        /// <summary>
-        /// Returns the name's character values as array.
-        /// </summary>
-        /// <param name="name">EU/US trainer name</param>
-        /// <returns></returns>
-        private static byte[] NameAsArray(string name)
-        {
-            byte[] chars = new byte[name.Length];
-            for (int x = 0; x < name.Length; x++)
-            {
-                chars[x] = GetCharValue(name[x].ToString());
-            }
-            return chars;
-        }
-
-        /// <summary>
-        /// Returns the name's character values as array.
-        /// </summary>
-        /// <param name="name">Korean trainer name</param>
-        /// <returns></returns>
-        private static byte[] NameAsArrayKO(string name)
-        {
-            byte[] chars = new byte[name.Length * 2];
-            for(int x = 0; x < name.Length; x++)
-            {
-                chars[x * 2] = (byte)(GetCharValueKO(name[x].ToString()) >> 8);
-                chars[x * 2 + 1] = (byte)(GetCharValueKO(name[x].ToString()) & 0xFF);
-            }
-            return chars;
-        }
-
-        private string name = "GSC";
-        private ushort tid = 0;
-        private uint money = 0;
-        private bool korean = false;
-
-        /// <summary>
-        /// Initializes a new password.
-        /// </summary>
-        public Password() { }
-
-        /// <summary>
-        /// Initializes a new password.
-        /// </summary>
-        /// <param name="name">Trainer Name</param>
-        /// <param name="tid">Trainer ID</param>
-        /// <param name="money">Amount of money the player is currently carying.</param>
-        /// <param name="korean">Is the game Korean?</param>
-        public Password(string name, ushort tid, uint money, bool korean = false)
-        {
-            if (IsValidName(name))
-            {
-                this.name = name;
-                this.tid = tid;
-                this.money = money;
-                this.korean = korean;
-            }
-            else
-                throw new ArgumentException("Invalid characters found in Trainer Name");
-        }
-
-        /// <summary>
-        /// Trainer Name
-        /// </summary>
-        public string Name
-        {
-            set
-            {
-                if (IsValidName(value))
-                {
-                    name = value;
-                }
-                else
-                    throw new Exception("Invalid characters found in Trainer Name");
-            }
-            get { return name; }
-        }
-
-        /// <summary>
-        /// Trainer ID
-        /// </summary>
-        public ushort TID
-        {
-            set { tid = value; }
-            get { return tid; }
-        }
-
-        /// <summary>
-        /// Amount of money the player is currently carrying.
-        /// </summary>
-        public uint Money
-        {
-            set { money = value; }
-            get { return money; }
-        }
-
-        /// <summary>
-        /// Is the game Korean?
-        /// </summary>
-        public bool Korean
-        {
-            set { korean = value; }
-            get { return korean; }
-        }
-
-        /// <summary>
-        /// Checks if the Trainer Name is valid.
-        /// </summary>
-        /// <param name="name">Trainer Name</param>
-        /// <returns></returns>
-        public bool IsValidName(string name)
-        {
-            if (!korean)
-            {
-                foreach (char c in name)
-                {
-                    if (!Table.TryGetValue(c.ToString(), out byte b))
-                        return false;
-                }
-            }
-            else
-            {
-                foreach (char c in name)
-                {
-                    if (!Table_KO.TryGetValue(c.ToString(), out ushort b))
-                        return false;
-                }
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Checks if the TID is in a valid range.
-        /// </summary>
-        /// <param name="tid">Trainer ID</param>
-        /// <returns></returns>
-        public static bool IsValidTID(ushort tid)
-        {
-            if (tid >= 0 && tid <= 65535)
-                return true;
-            else
-                return false;
-        }
-
-        /// <summary>
-        /// Checks if the amount of money is in a valid range.
-        /// </summary>
-        /// <param name="money">Amount of money the player is currently carrying.</param>
-        /// <returns></returns>
-        public static bool IsValidMoneyAmount(uint money)
-        {
-            if (money >= 0 && money <= 999999)
-                return true;
-            else
-                return false;
-        }
-
-        /// <summary>
-        /// Calculates and returns the password.
-        /// </summary>
-        /// <returns></returns>
-        public ushort GetPassword()
-        {
-            ushort pass = 0;
-
-            if (!korean)
-            {
-                byte[] nameBytes = NameAsArray(name);
-                for (int x = 0; x < nameBytes.Length && x < 5; x++) // only the first 5 characters are taken into account
-                    pass += nameBytes[x];
-            }
-            else
-            {
-                byte[] nameBytesKO = NameAsArrayKO(name);
-                for (int x = 0; x < nameBytesKO.Length && x < 5; x++)
-                    pass += nameBytesKO[x];
-            }
-
-            pass += (ushort)((tid >> 8) + (tid & 0xFF) + ((money >> 16) & 0xFF) + ((money >> 8) & 0xFF) + (money & 0xFF));
-
-            return pass;
-        }
-
-        /// <summary>
-        /// Calculates and returns the password as string.
-        /// </summary>
-        /// <returns></returns>
-        public string GetPasswordString()
-        {
-            return String.Format("{0:00000}", GetPassword());
-        }
     }
 }

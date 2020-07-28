@@ -28,195 +28,180 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.inputBox = new System.Windows.Forms.GroupBox();
-            this.regionBox = new System.Windows.Forms.GroupBox();
-            this.region_kor = new System.Windows.Forms.RadioButton();
-            this.region_euus = new System.Windows.Forms.RadioButton();
-            this.moneyLabel = new System.Windows.Forms.Label();
-            this.tidLabel = new System.Windows.Forms.Label();
-            this.moneyBox = new System.Windows.Forms.TextBox();
-            this.tidBox = new System.Windows.Forms.TextBox();
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.nameBox = new System.Windows.Forms.TextBox();
-            this.passwordBox = new System.Windows.Forms.GroupBox();
-            this.password = new System.Windows.Forms.TextBox();
-            this.generatePassword = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.InputBox = new System.Windows.Forms.GroupBox();
+            this.RegionBox = new System.Windows.Forms.GroupBox();
+            this.RegionKOR = new System.Windows.Forms.RadioButton();
+            this.RegionEUUS = new System.Windows.Forms.RadioButton();
+            this.MoneyLabel = new System.Windows.Forms.Label();
+            this.TIDLabel = new System.Windows.Forms.Label();
+            this.NameLabel = new System.Windows.Forms.Label();
+            this.NameBox = new System.Windows.Forms.TextBox();
+            this.PasswordBox = new System.Windows.Forms.GroupBox();
+            this.PasswordTextBox = new System.Windows.Forms.TextBox();
+            this.GeneratePassword = new System.Windows.Forms.Button();
             this.JPGSCInstructionsBox = new System.Windows.Forms.GroupBox();
             this.JPGSCLabel = new System.Windows.Forms.Label();
             this.EUUSCInstructionsBox = new System.Windows.Forms.GroupBox();
             this.EUUSCInstructionsLabel = new System.Windows.Forms.Label();
             this.EUUSGSInstructionsBox = new System.Windows.Forms.GroupBox();
             this.EUUSGSInstructionsLabel = new System.Windows.Forms.Label();
-            this.instructionsBox = new System.Windows.Forms.GroupBox();
+            this.InstructionsBox = new System.Windows.Forms.GroupBox();
             this.charLabel1 = new System.Windows.Forms.Label();
             this.charLabel2 = new System.Windows.Forms.Label();
-            this.specialCharactersBox = new System.Windows.Forms.GroupBox();
+            this.SpecialCharactersBox = new System.Windows.Forms.GroupBox();
             this.multiplicationTextBox = new System.Windows.Forms.TextBox();
             this.MNTextBox = new System.Windows.Forms.TextBox();
             this.PKTextBox = new System.Windows.Forms.TextBox();
-            this.multiplicationPictureBox = new System.Windows.Forms.PictureBox();
             this.charLabel3 = new System.Windows.Forms.Label();
+            this.TIDBox = new System.Windows.Forms.NumericUpDown();
+            this.MoneyBox = new System.Windows.Forms.NumericUpDown();
+            this.multiplicationPictureBox = new System.Windows.Forms.PictureBox();
             this.PKPictureBox = new System.Windows.Forms.PictureBox();
             this.MNPictureBox = new System.Windows.Forms.PictureBox();
-            this.inputBox.SuspendLayout();
-            this.regionBox.SuspendLayout();
-            this.passwordBox.SuspendLayout();
+            this.InputBox.SuspendLayout();
+            this.RegionBox.SuspendLayout();
+            this.PasswordBox.SuspendLayout();
             this.JPGSCInstructionsBox.SuspendLayout();
             this.EUUSCInstructionsBox.SuspendLayout();
             this.EUUSGSInstructionsBox.SuspendLayout();
-            this.instructionsBox.SuspendLayout();
-            this.specialCharactersBox.SuspendLayout();
+            this.InstructionsBox.SuspendLayout();
+            this.SpecialCharactersBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TIDBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MoneyBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.multiplicationPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PKPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MNPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // inputBox
+            // InputBox
             // 
-            this.inputBox.Controls.Add(this.regionBox);
-            this.inputBox.Controls.Add(this.moneyLabel);
-            this.inputBox.Controls.Add(this.tidLabel);
-            this.inputBox.Controls.Add(this.moneyBox);
-            this.inputBox.Controls.Add(this.tidBox);
-            this.inputBox.Controls.Add(this.nameLabel);
-            this.inputBox.Controls.Add(this.nameBox);
-            this.inputBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inputBox.Location = new System.Drawing.Point(12, 6);
-            this.inputBox.Name = "inputBox";
-            this.inputBox.Size = new System.Drawing.Size(150, 145);
-            this.inputBox.TabIndex = 0;
-            this.inputBox.TabStop = false;
-            this.inputBox.Text = "Input";
+            this.InputBox.Controls.Add(this.MoneyBox);
+            this.InputBox.Controls.Add(this.TIDBox);
+            this.InputBox.Controls.Add(this.RegionBox);
+            this.InputBox.Controls.Add(this.MoneyLabel);
+            this.InputBox.Controls.Add(this.TIDLabel);
+            this.InputBox.Controls.Add(this.NameLabel);
+            this.InputBox.Controls.Add(this.NameBox);
+            this.InputBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InputBox.Location = new System.Drawing.Point(12, 6);
+            this.InputBox.Name = "InputBox";
+            this.InputBox.Size = new System.Drawing.Size(150, 145);
+            this.InputBox.TabIndex = 0;
+            this.InputBox.TabStop = false;
+            this.InputBox.Text = "Input";
             // 
-            // regionBox
+            // RegionBox
             // 
-            this.regionBox.Controls.Add(this.region_kor);
-            this.regionBox.Controls.Add(this.region_euus);
-            this.regionBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regionBox.Location = new System.Drawing.Point(9, 95);
-            this.regionBox.Name = "regionBox";
-            this.regionBox.Size = new System.Drawing.Size(132, 40);
-            this.regionBox.TabIndex = 3;
-            this.regionBox.TabStop = false;
-            this.regionBox.Text = "Region";
+            this.RegionBox.Controls.Add(this.RegionKOR);
+            this.RegionBox.Controls.Add(this.RegionEUUS);
+            this.RegionBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegionBox.Location = new System.Drawing.Point(9, 95);
+            this.RegionBox.Name = "RegionBox";
+            this.RegionBox.Size = new System.Drawing.Size(132, 40);
+            this.RegionBox.TabIndex = 3;
+            this.RegionBox.TabStop = false;
+            this.RegionBox.Text = "Region";
             // 
-            // region_kor
+            // RegionKOR
             // 
-            this.region_kor.AutoSize = true;
-            this.region_kor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.region_kor.Location = new System.Drawing.Point(73, 16);
-            this.region_kor.Name = "region_kor";
-            this.region_kor.Size = new System.Drawing.Size(48, 17);
-            this.region_kor.TabIndex = 1;
-            this.region_kor.TabStop = true;
-            this.region_kor.Text = "KOR";
-            this.region_kor.UseVisualStyleBackColor = true;
+            this.RegionKOR.AutoSize = true;
+            this.RegionKOR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RegionKOR.Location = new System.Drawing.Point(73, 16);
+            this.RegionKOR.Name = "RegionKOR";
+            this.RegionKOR.Size = new System.Drawing.Size(48, 17);
+            this.RegionKOR.TabIndex = 1;
+            this.RegionKOR.TabStop = true;
+            this.RegionKOR.Text = "KOR";
+            this.RegionKOR.UseVisualStyleBackColor = true;
             // 
-            // region_euus
+            // RegionEUUS
             // 
-            this.region_euus.AutoSize = true;
-            this.region_euus.Checked = true;
-            this.region_euus.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.region_euus.Location = new System.Drawing.Point(7, 16);
-            this.region_euus.Name = "region_euus";
-            this.region_euus.Size = new System.Drawing.Size(60, 17);
-            this.region_euus.TabIndex = 0;
-            this.region_euus.TabStop = true;
-            this.region_euus.Text = "EU/US";
-            this.region_euus.UseVisualStyleBackColor = true;
+            this.RegionEUUS.AutoSize = true;
+            this.RegionEUUS.Checked = true;
+            this.RegionEUUS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RegionEUUS.Location = new System.Drawing.Point(7, 16);
+            this.RegionEUUS.Name = "RegionEUUS";
+            this.RegionEUUS.Size = new System.Drawing.Size(60, 17);
+            this.RegionEUUS.TabIndex = 0;
+            this.RegionEUUS.TabStop = true;
+            this.RegionEUUS.Text = "EU/US";
+            this.RegionEUUS.UseVisualStyleBackColor = true;
             // 
-            // moneyLabel
+            // MoneyLabel
             // 
-            this.moneyLabel.AutoSize = true;
-            this.moneyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.moneyLabel.Location = new System.Drawing.Point(19, 73);
-            this.moneyLabel.Name = "moneyLabel";
-            this.moneyLabel.Size = new System.Drawing.Size(39, 13);
-            this.moneyLabel.TabIndex = 5;
-            this.moneyLabel.Text = "Money";
+            this.MoneyLabel.AutoSize = true;
+            this.MoneyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MoneyLabel.Location = new System.Drawing.Point(19, 73);
+            this.MoneyLabel.Name = "MoneyLabel";
+            this.MoneyLabel.Size = new System.Drawing.Size(39, 13);
+            this.MoneyLabel.TabIndex = 5;
+            this.MoneyLabel.Text = "Money";
             // 
-            // tidLabel
+            // TIDLabel
             // 
-            this.tidLabel.AutoSize = true;
-            this.tidLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tidLabel.Location = new System.Drawing.Point(4, 46);
-            this.tidLabel.Name = "tidLabel";
-            this.tidLabel.Size = new System.Drawing.Size(54, 13);
-            this.tidLabel.TabIndex = 4;
-            this.tidLabel.Text = "Trainer ID";
+            this.TIDLabel.AutoSize = true;
+            this.TIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TIDLabel.Location = new System.Drawing.Point(4, 46);
+            this.TIDLabel.Name = "TIDLabel";
+            this.TIDLabel.Size = new System.Drawing.Size(54, 13);
+            this.TIDLabel.TabIndex = 4;
+            this.TIDLabel.Text = "Trainer ID";
             // 
-            // moneyBox
+            // NameLabel
             // 
-            this.moneyBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.moneyBox.Location = new System.Drawing.Point(64, 70);
-            this.moneyBox.MaxLength = 6;
-            this.moneyBox.Name = "moneyBox";
-            this.moneyBox.Size = new System.Drawing.Size(77, 20);
-            this.moneyBox.TabIndex = 2;
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameLabel.Location = new System.Drawing.Point(23, 19);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(35, 13);
+            this.NameLabel.TabIndex = 1;
+            this.NameLabel.Text = "Name";
             // 
-            // tidBox
+            // NameBox
             // 
-            this.tidBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tidBox.Location = new System.Drawing.Point(64, 43);
-            this.tidBox.MaxLength = 5;
-            this.tidBox.Name = "tidBox";
-            this.tidBox.Size = new System.Drawing.Size(77, 20);
-            this.tidBox.TabIndex = 1;
+            this.NameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameBox.Location = new System.Drawing.Point(64, 16);
+            this.NameBox.MaxLength = 7;
+            this.NameBox.Name = "NameBox";
+            this.NameBox.Size = new System.Drawing.Size(77, 20);
+            this.NameBox.TabIndex = 0;
             // 
-            // nameLabel
+            // PasswordBox
             // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(23, 19);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(35, 13);
-            this.nameLabel.TabIndex = 1;
-            this.nameLabel.Text = "Name";
+            this.PasswordBox.Controls.Add(this.PasswordTextBox);
+            this.PasswordBox.Controls.Add(this.GeneratePassword);
+            this.PasswordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordBox.Location = new System.Drawing.Point(12, 157);
+            this.PasswordBox.Name = "PasswordBox";
+            this.PasswordBox.Size = new System.Drawing.Size(150, 93);
+            this.PasswordBox.TabIndex = 1;
+            this.PasswordBox.TabStop = false;
+            this.PasswordBox.Text = "Password";
             // 
-            // nameBox
+            // PasswordTextBox
             // 
-            this.nameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameBox.Location = new System.Drawing.Point(64, 16);
-            this.nameBox.MaxLength = 7;
-            this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(77, 20);
-            this.nameBox.TabIndex = 0;
+            this.PasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PasswordTextBox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.PasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordTextBox.Location = new System.Drawing.Point(52, 56);
+            this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.ReadOnly = true;
+            this.PasswordTextBox.Size = new System.Drawing.Size(46, 16);
+            this.PasswordTextBox.TabIndex = 1;
+            this.PasswordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // passwordBox
+            // GeneratePassword
             // 
-            this.passwordBox.Controls.Add(this.password);
-            this.passwordBox.Controls.Add(this.generatePassword);
-            this.passwordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordBox.Location = new System.Drawing.Point(12, 157);
-            this.passwordBox.Name = "passwordBox";
-            this.passwordBox.Size = new System.Drawing.Size(150, 93);
-            this.passwordBox.TabIndex = 1;
-            this.passwordBox.TabStop = false;
-            this.passwordBox.Text = "Password";
-            // 
-            // password
-            // 
-            this.password.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.password.Cursor = System.Windows.Forms.Cursors.Default;
-            this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password.Location = new System.Drawing.Point(52, 56);
-            this.password.Name = "password";
-            this.password.ReadOnly = true;
-            this.password.Size = new System.Drawing.Size(46, 16);
-            this.password.TabIndex = 1;
-            this.password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // generatePassword
-            // 
-            this.generatePassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.generatePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.generatePassword.Location = new System.Drawing.Point(38, 19);
-            this.generatePassword.Name = "generatePassword";
-            this.generatePassword.Size = new System.Drawing.Size(75, 23);
-            this.generatePassword.TabIndex = 0;
-            this.generatePassword.Text = "Generate";
-            this.generatePassword.UseVisualStyleBackColor = true;
-            this.generatePassword.Click += new System.EventHandler(this.generatePassword_Click);
+            this.GeneratePassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GeneratePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GeneratePassword.Location = new System.Drawing.Point(38, 19);
+            this.GeneratePassword.Name = "GeneratePassword";
+            this.GeneratePassword.Size = new System.Drawing.Size(75, 23);
+            this.GeneratePassword.TabIndex = 0;
+            this.GeneratePassword.Text = "Generate";
+            this.GeneratePassword.UseVisualStyleBackColor = true;
+            this.GeneratePassword.Click += new System.EventHandler(this.GeneratePassword_Click);
             // 
             // JPGSCInstructionsBox
             // 
@@ -282,17 +267,17 @@
             this.EUUSGSInstructionsLabel.TabIndex = 2;
             this.EUUSGSInstructionsLabel.Text = "- hold ↓ + SELECT + B on the title screen";
             // 
-            // instructionsBox
+            // InstructionsBox
             // 
-            this.instructionsBox.Controls.Add(this.EUUSGSInstructionsBox);
-            this.instructionsBox.Controls.Add(this.JPGSCInstructionsBox);
-            this.instructionsBox.Controls.Add(this.EUUSCInstructionsBox);
-            this.instructionsBox.Location = new System.Drawing.Point(183, 6);
-            this.instructionsBox.Name = "instructionsBox";
-            this.instructionsBox.Size = new System.Drawing.Size(229, 195);
-            this.instructionsBox.TabIndex = 11;
-            this.instructionsBox.TabStop = false;
-            this.instructionsBox.Text = "Instructions";
+            this.InstructionsBox.Controls.Add(this.EUUSGSInstructionsBox);
+            this.InstructionsBox.Controls.Add(this.JPGSCInstructionsBox);
+            this.InstructionsBox.Controls.Add(this.EUUSCInstructionsBox);
+            this.InstructionsBox.Location = new System.Drawing.Point(183, 6);
+            this.InstructionsBox.Name = "InstructionsBox";
+            this.InstructionsBox.Size = new System.Drawing.Size(229, 195);
+            this.InstructionsBox.TabIndex = 11;
+            this.InstructionsBox.TabStop = false;
+            this.InstructionsBox.Text = "Instructions";
             // 
             // charLabel1
             // 
@@ -312,23 +297,23 @@
             this.charLabel2.TabIndex = 14;
             this.charLabel2.Text = "= ";
             // 
-            // specialCharactersBox
+            // SpecialCharactersBox
             // 
-            this.specialCharactersBox.Controls.Add(this.multiplicationTextBox);
-            this.specialCharactersBox.Controls.Add(this.MNTextBox);
-            this.specialCharactersBox.Controls.Add(this.PKTextBox);
-            this.specialCharactersBox.Controls.Add(this.multiplicationPictureBox);
-            this.specialCharactersBox.Controls.Add(this.charLabel3);
-            this.specialCharactersBox.Controls.Add(this.PKPictureBox);
-            this.specialCharactersBox.Controls.Add(this.charLabel2);
-            this.specialCharactersBox.Controls.Add(this.MNPictureBox);
-            this.specialCharactersBox.Controls.Add(this.charLabel1);
-            this.specialCharactersBox.Location = new System.Drawing.Point(183, 207);
-            this.specialCharactersBox.Name = "specialCharactersBox";
-            this.specialCharactersBox.Size = new System.Drawing.Size(229, 43);
-            this.specialCharactersBox.TabIndex = 15;
-            this.specialCharactersBox.TabStop = false;
-            this.specialCharactersBox.Text = "Special Characters";
+            this.SpecialCharactersBox.Controls.Add(this.multiplicationTextBox);
+            this.SpecialCharactersBox.Controls.Add(this.MNTextBox);
+            this.SpecialCharactersBox.Controls.Add(this.PKTextBox);
+            this.SpecialCharactersBox.Controls.Add(this.multiplicationPictureBox);
+            this.SpecialCharactersBox.Controls.Add(this.charLabel3);
+            this.SpecialCharactersBox.Controls.Add(this.PKPictureBox);
+            this.SpecialCharactersBox.Controls.Add(this.charLabel2);
+            this.SpecialCharactersBox.Controls.Add(this.MNPictureBox);
+            this.SpecialCharactersBox.Controls.Add(this.charLabel1);
+            this.SpecialCharactersBox.Location = new System.Drawing.Point(183, 207);
+            this.SpecialCharactersBox.Name = "SpecialCharactersBox";
+            this.SpecialCharactersBox.Size = new System.Drawing.Size(229, 43);
+            this.SpecialCharactersBox.TabIndex = 15;
+            this.SpecialCharactersBox.TabStop = false;
+            this.SpecialCharactersBox.Text = "Special Characters";
             // 
             // multiplicationTextBox
             // 
@@ -360,15 +345,6 @@
             this.PKTextBox.Text = "{";
             this.PKTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // multiplicationPictureBox
-            // 
-            this.multiplicationPictureBox.Image = global::GSClockReset.Properties.Resources.multiplication;
-            this.multiplicationPictureBox.Location = new System.Drawing.Point(173, 22);
-            this.multiplicationPictureBox.Name = "multiplicationPictureBox";
-            this.multiplicationPictureBox.Size = new System.Drawing.Size(10, 10);
-            this.multiplicationPictureBox.TabIndex = 16;
-            this.multiplicationPictureBox.TabStop = false;
-            // 
             // charLabel3
             // 
             this.charLabel3.AutoSize = true;
@@ -377,6 +353,39 @@
             this.charLabel3.Size = new System.Drawing.Size(16, 13);
             this.charLabel3.TabIndex = 15;
             this.charLabel3.Text = "= ";
+            // 
+            // TIDBox
+            // 
+            this.TIDBox.Location = new System.Drawing.Point(64, 43);
+            this.TIDBox.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.TIDBox.Name = "TIDBox";
+            this.TIDBox.Size = new System.Drawing.Size(77, 20);
+            this.TIDBox.TabIndex = 6;
+            // 
+            // MoneyBox
+            // 
+            this.MoneyBox.Location = new System.Drawing.Point(64, 70);
+            this.MoneyBox.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.MoneyBox.Name = "MoneyBox";
+            this.MoneyBox.Size = new System.Drawing.Size(77, 20);
+            this.MoneyBox.TabIndex = 7;
+            // 
+            // multiplicationPictureBox
+            // 
+            this.multiplicationPictureBox.Image = global::GSClockReset.Properties.Resources.multiplication;
+            this.multiplicationPictureBox.Location = new System.Drawing.Point(173, 22);
+            this.multiplicationPictureBox.Name = "multiplicationPictureBox";
+            this.multiplicationPictureBox.Size = new System.Drawing.Size(10, 10);
+            this.multiplicationPictureBox.TabIndex = 16;
+            this.multiplicationPictureBox.TabStop = false;
             // 
             // PKPictureBox
             // 
@@ -401,29 +410,32 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(424, 261);
-            this.Controls.Add(this.specialCharactersBox);
-            this.Controls.Add(this.instructionsBox);
-            this.Controls.Add(this.passwordBox);
-            this.Controls.Add(this.inputBox);
+            this.Controls.Add(this.SpecialCharactersBox);
+            this.Controls.Add(this.InstructionsBox);
+            this.Controls.Add(this.PasswordBox);
+            this.Controls.Add(this.InputBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Pokemon GSC Clock Password Generator";
-            this.inputBox.ResumeLayout(false);
-            this.inputBox.PerformLayout();
-            this.regionBox.ResumeLayout(false);
-            this.regionBox.PerformLayout();
-            this.passwordBox.ResumeLayout(false);
-            this.passwordBox.PerformLayout();
+            this.InputBox.ResumeLayout(false);
+            this.InputBox.PerformLayout();
+            this.RegionBox.ResumeLayout(false);
+            this.RegionBox.PerformLayout();
+            this.PasswordBox.ResumeLayout(false);
+            this.PasswordBox.PerformLayout();
             this.JPGSCInstructionsBox.ResumeLayout(false);
             this.JPGSCInstructionsBox.PerformLayout();
             this.EUUSCInstructionsBox.ResumeLayout(false);
             this.EUUSCInstructionsBox.PerformLayout();
             this.EUUSGSInstructionsBox.ResumeLayout(false);
             this.EUUSGSInstructionsBox.PerformLayout();
-            this.instructionsBox.ResumeLayout(false);
-            this.specialCharactersBox.ResumeLayout(false);
-            this.specialCharactersBox.PerformLayout();
+            this.InstructionsBox.ResumeLayout(false);
+            this.SpecialCharactersBox.ResumeLayout(false);
+            this.SpecialCharactersBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TIDBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MoneyBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.multiplicationPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PKPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MNPictureBox)).EndInit();
@@ -433,29 +445,27 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox inputBox;
-        private System.Windows.Forms.Label moneyLabel;
-        private System.Windows.Forms.Label tidLabel;
-        private System.Windows.Forms.TextBox moneyBox;
-        private System.Windows.Forms.TextBox tidBox;
-        private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.TextBox nameBox;
-        private System.Windows.Forms.GroupBox passwordBox;
-        private System.Windows.Forms.TextBox password;
-        private System.Windows.Forms.Button generatePassword;
-        private System.Windows.Forms.GroupBox regionBox;
-        private System.Windows.Forms.RadioButton region_kor;
-        private System.Windows.Forms.RadioButton region_euus;
+        private System.Windows.Forms.GroupBox InputBox;
+        private System.Windows.Forms.Label MoneyLabel;
+        private System.Windows.Forms.Label TIDLabel;
+        private System.Windows.Forms.Label NameLabel;
+        private System.Windows.Forms.TextBox NameBox;
+        private System.Windows.Forms.GroupBox PasswordBox;
+        private System.Windows.Forms.TextBox PasswordTextBox;
+        private System.Windows.Forms.Button GeneratePassword;
+        private System.Windows.Forms.GroupBox RegionBox;
+        private System.Windows.Forms.RadioButton RegionKOR;
+        private System.Windows.Forms.RadioButton RegionEUUS;
         private System.Windows.Forms.GroupBox JPGSCInstructionsBox;
         private System.Windows.Forms.Label JPGSCLabel;
         private System.Windows.Forms.GroupBox EUUSCInstructionsBox;
         private System.Windows.Forms.Label EUUSCInstructionsLabel;
         private System.Windows.Forms.GroupBox EUUSGSInstructionsBox;
         private System.Windows.Forms.Label EUUSGSInstructionsLabel;
-        private System.Windows.Forms.GroupBox instructionsBox;
+        private System.Windows.Forms.GroupBox InstructionsBox;
         private System.Windows.Forms.PictureBox PKPictureBox;
         private System.Windows.Forms.PictureBox MNPictureBox;
-        private System.Windows.Forms.GroupBox specialCharactersBox;
+        private System.Windows.Forms.GroupBox SpecialCharactersBox;
         private System.Windows.Forms.PictureBox multiplicationPictureBox;
         private System.Windows.Forms.Label charLabel3;
         private System.Windows.Forms.Label charLabel2;
@@ -463,6 +473,8 @@
         private System.Windows.Forms.TextBox multiplicationTextBox;
         private System.Windows.Forms.TextBox MNTextBox;
         private System.Windows.Forms.TextBox PKTextBox;
+        private System.Windows.Forms.NumericUpDown MoneyBox;
+        private System.Windows.Forms.NumericUpDown TIDBox;
     }
 }
 
