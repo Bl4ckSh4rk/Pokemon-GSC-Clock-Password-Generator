@@ -39,7 +39,7 @@ namespace GSClockReset
                 throw new ArgumentOutOfRangeException("TID", TID, "Expected a value between 0 and 65535.");
 
             if (Money < 0 || Money > 999999)
-                throw new ArgumentOutOfRangeException("TID", Money, "Expected a value between 0 and 999999."); ;
+                throw new ArgumentOutOfRangeException("Money", Money, "Expected a value between 0 and 999999."); ;
 
 
             ushort pass = 0;
